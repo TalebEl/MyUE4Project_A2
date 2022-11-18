@@ -24,6 +24,7 @@ void AATEPawn::BeginPlay()
 
 void AATEPawn::moveUpandDown(float value)
 {
+
 }
 
 
@@ -34,13 +35,13 @@ void AATEPawn::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-//void AATEPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-//{
-//	Super::SetupPlayerInputComponent(PlayerInputComponent);
-//
-//
-//
-//
-//}
+ //Called to bind functionality to input
+void AATEPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+
+
+
+}
 

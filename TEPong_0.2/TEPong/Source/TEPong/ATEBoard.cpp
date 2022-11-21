@@ -1,31 +1,33 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include "Components/BoxComponent.h"
+//Fuction that I can use ,editable mesh(),...
+//For the static mesh(Board)
+#include "Components/StaticMeshComponent.h"
 #include "ATEBoard.h"
 
 // Sets default values
 AATEBoard::AATEBoard()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	//PrimaryActorTick.bCanEverTick = true;
+ 	 //Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = true;
 
-	//TriggerBox = CreateDefaultSubobject<UBoxComponent>("SceneRoot");
-	////2
-	//TriggerBox->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
-	////3
-	//TriggerBox->SetSimulatePhysics(false);
-	////4 - Add a Step and show camera .
-	//TriggerBox->SetCollisionProfileName("OverlapAllDynamic");
-	////5	
-	//TriggerBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//creates an instance of UBoxComponent 
+	BoxCollsion = CreateDefaultSubobject<UBoxComponent>("Box Collision");
+	BoxCollsion->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
+	BoxCollsion->SetSimulatePhysics(false);
+	BoxCollsion->SetCollisionProfileName("OverlapAllDynamic");
+	BoxCollsion->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	BoxCollsion->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
+	BoxCollsion->OnComponentEndOverlap.AddDynamic(this, &AATEBoard::EndOverlap);
+	SetRootComponent(BoxCollsion);
 
-	////6
-	//TriggerBox->OnComponentBeginOverlap.AddDynamic(this, &ATriggerCollision::BeginOverlap);
-	//TriggerBox->OnComponentEndOverlap.AddDynamic(this, &ATriggerCollision::EndOverlap);
 
-	//SetRootComponent(TriggerBox);
+	//Static mesh Component
+	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>("Components");
 
-}
+
+} 
 
 // Called when the game starts or when spawned
 void AATEBoard::BeginPlay()

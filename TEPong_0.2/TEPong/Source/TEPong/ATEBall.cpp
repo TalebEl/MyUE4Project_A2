@@ -39,6 +39,7 @@ AATEBall::AATEBall() :
     //UProjectileMovementComponent : Ball bounce
     BallMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>("Ball Movement Component");
     BallMovementComponent->SetUpdatedComponent(CollisionSphere);
+    //Those are UProjectileMovementComponent variables
     BallMovementComponent->InitialSpeed = 0.0f;
     BallMovementComponent->MaxSpeed = 250.0f;
     BallMovementComponent->bRotationFollowsVelocity = false;

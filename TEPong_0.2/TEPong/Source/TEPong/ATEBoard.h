@@ -4,12 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-
 //#include "Components/BoxComponent.h"
 #include "ATEBoard.generated.h"
 
-//For the static mesh(Board)
-//#include "Engine/StaticMesh.h" -> Fuction that I can use ,editable mesh(),...
+
+ 
+
 
 
 //Not sure I could use that for the player points
@@ -32,6 +32,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
 		 class UBoxComponent* BoxCollsion;
 
+	//For the points?
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		TEnumAsByte<EGoal> goal;*/
 
@@ -39,8 +40,8 @@ public:
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		AActor* SpawnBallInMiddle;*/
 
-	/*UPROPERTY(VisibleAnywhere, Category = "Components")
-		UStaticMeshComponent* MeshComp;*/
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UStaticMeshComponent* MeshComp;
 
 	
 

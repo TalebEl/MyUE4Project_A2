@@ -3,6 +3,8 @@
 
 #include "ATEPawn.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+//#include "GameFramework/FloatingPawnMovement.h"
+#include "Engine/StaticMesh.h"
 
 // Sets default values
 AATEPawn::AATEPawn()
@@ -13,6 +15,10 @@ AATEPawn::AATEPawn()
 	BallBounce = CreateDefaultSubobject<UProjectileMovementComponent>("Ball Bounce");
 	BallBounce->Bounciness = 1.0f;
 
+	PaddleComponent = CreateDefaultSubobject<UStaticMeshComponent>("Paddle Component");
+	//root?
+	//RootComponent:The component that defines the transform(location, rotation, scale) of this Actor in the world, all other components must be attached to this one somehow
+	RootComponent = PaddleComponent;
 }
 
 // Called when the game starts or when spawned

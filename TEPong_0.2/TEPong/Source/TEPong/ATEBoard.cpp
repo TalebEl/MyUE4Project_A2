@@ -7,23 +7,23 @@
 AATEBoard::AATEBoard()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	//PrimaryActorTick.bCanEverTick = true;
 
-	TriggerBox = CreateDefaultSubobject<UBoxComponent>("SceneRoot");
-	//2
-	TriggerBox->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
-	//3
-	TriggerBox->SetSimulatePhysics(false);
-	//4 - Add a Step and show camera .
-	TriggerBox->SetCollisionProfileName("OverlapAllDynamic");
-	//5	
-	TriggerBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//TriggerBox = CreateDefaultSubobject<UBoxComponent>("SceneRoot");
+	////2
+	//TriggerBox->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
+	////3
+	//TriggerBox->SetSimulatePhysics(false);
+	////4 - Add a Step and show camera .
+	//TriggerBox->SetCollisionProfileName("OverlapAllDynamic");
+	////5	
+	//TriggerBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 
-	//6
-	TriggerBox->OnComponentBeginOverlap.AddDynamic(this, &ATriggerCollision::BeginOverlap);
-	TriggerBox->OnComponentEndOverlap.AddDynamic(this, &ATriggerCollision::EndOverlap);
+	////6
+	//TriggerBox->OnComponentBeginOverlap.AddDynamic(this, &ATriggerCollision::BeginOverlap);
+	//TriggerBox->OnComponentEndOverlap.AddDynamic(this, &ATriggerCollision::EndOverlap);
 
-	SetRootComponent(TriggerBox);
+	//SetRootComponent(TriggerBox);
 
 }
 

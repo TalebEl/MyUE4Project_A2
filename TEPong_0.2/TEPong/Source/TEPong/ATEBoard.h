@@ -8,6 +8,10 @@
 //#include "Components/BoxComponent.h"
 #include "ATEBoard.generated.h"
 
+//For the static mesh(Board)
+//#include "Engine/StaticMesh.h" -> Fuction that I can use ,editable mesh(),...
+
+
 //Not sure I could use that for the player points
 UENUM(BlueprintType)
 enum class EGoal : uint8 {
@@ -28,18 +32,30 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
 		 class UBoxComponent* BoxCollsion;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		TEnumAsByte<EGoal> goal;
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+		TEnumAsByte<EGoal> goal;*/
 
 
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		AActor* SpawnBallInMiddle;*/
+
+	/*UPROPERTY(VisibleAnywhere, Category = "Components")
+		UStaticMeshComponent* MeshComp;*/
+
+	
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+
+	//Function that I could call
+	//getScaledBoxExtent()
+
+
+
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

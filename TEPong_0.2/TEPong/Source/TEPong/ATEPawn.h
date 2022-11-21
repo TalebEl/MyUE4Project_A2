@@ -3,16 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
+//#include "GameFramework/FloatingPawnMovement.h"
+#include "Engine/StaticMesh.h"
 #include "GameFramework/Pawn.h"
 #include "ATEPawn.generated.h"
 
 
+//My Paddle class
 UCLASS()
 class TEPONG_API AATEPawn : public APawn
 {
 	GENERATED_BODY()
 
-public:
+protected:
 	// Sets default values for this pawn's properties
 	AATEPawn();
 	// Called every frame
@@ -21,7 +24,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ball Bounce")
 		class UProjectileMovementComponent* BallBounce;
 
-protected:
+	//This will handle meshe(s)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh Component")
+		UStaticMeshComponent* PaddleComponent;
+
+	//FloatingPawnMovement is a movement component that provides simple movement for any Pawn class.
+	//Functions that I might use: bool LimitWorldBounds(),...
+	/*UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh Component")
+		UFloatingPawnMovement* MeshComponent;*/
+
+
+public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -29,6 +42,7 @@ protected:
 	virtual void BeginPlay() override;
 
 
+	//Function to move to paddle UP and DOWN
 	void moveUpandDown(float value);
 
 

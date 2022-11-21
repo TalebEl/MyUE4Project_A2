@@ -13,5 +13,6 @@ UCLASS()
 class TEPONG_API ATEPongGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
 	
 };

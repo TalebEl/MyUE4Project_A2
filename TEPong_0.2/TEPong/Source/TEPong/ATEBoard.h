@@ -10,9 +10,6 @@
 
  
 
-
-
-//Not sure I could use that for the player points
 UENUM(BlueprintType)
 enum class EGoal : uint8 {
 	LEFT = 0  UMETA(DisplayName = "Player"),
@@ -28,13 +25,34 @@ public:
 	// Sets default values for this actor's properties
 	AATEBoard();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Board Visual")
+		class UPaperSpriteComponent* BoardVisual;
+
 	//The trigger Box
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
-		 class UBoxComponent* BoxCollsion;
+		 class UBoxComponent* TopBoundary;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
+		class UBoxComponent* BottomBoundary;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
+		class UBoxComponent* LeftGoal;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
+		class UBoxComponent* RightGoal;
+
+	UPROPERTY(VisibleAnywhere, Category = "Board Camera")
+		class UCameraComponent* FollowCamera;
+
+	//For the goals
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+		AActor* MiddleOfField;
+
+
 
 	//For the points?
-	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		TEnumAsByte<EGoal> goal;*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+		TEnumAsByte<EGoal> goal;
 
 
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)

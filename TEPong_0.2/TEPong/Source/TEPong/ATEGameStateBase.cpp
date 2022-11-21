@@ -3,3 +3,18 @@
 
 #include "ATEGameStateBase.h"
 
+
+
+AATEGameStateBase::AATEGameStateBase()
+{
+}
+
+int AATEGameStateBase::GetNumberOfLeftGoals()
+{
+	return NumberOfLeftGoals;
+}
+
+int AATEGameStateBase::GetNumberOfRightGoals()
+{
+	return NumberOfRightGoals;
+}

@@ -13,5 +13,9 @@ UCLASS()
 class TEPONG_API AATEGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+protected:
+	virtual void BeginPlay() override;
+
 	
 };

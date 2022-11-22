@@ -3,8 +3,6 @@
 
 #include "ATEPawn.h"
 #include "GameFramework/ProjectileMovementComponent.h"
-//#include "GameFramework/FloatingPawnMovement.h"
-#include "Engine/StaticMesh.h"
 #include "PaperSpriteComponent.h"
 #include "Components/BoxComponent.h"
 
@@ -22,6 +20,7 @@ AATEPawn::AATEPawn()
 	PawnSpriteComponent->SetupAttachment(RootComponent);
 	PawnSpriteComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
+	//UBoxComponent
 	PlayerRootCollisionBox = CreateDefaultSubobject<UBoxComponent>("SceneRoot");
 
 	
@@ -44,7 +43,7 @@ AATEPawn::AATEPawn()
 void AATEPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	SetDirection(FVector::UpVector); // temp might change that
 }
 
 void AATEPawn::moveUpandDown(float value)
@@ -85,7 +84,7 @@ void AATEPawn::SetDirection(const FVector Direction)
 		PawnSpriteComponent->SetRelativeRotation(FRotator(0, 0, 0));
 	}
 	else if (Direction == FVector::DownVector) {
-		PawnSpriteComponent->SetRelativeRotation(FRotator(0, 0, 0));
+		PawnSpriteComponent->SetRelativeRotation(FRotator(0, 180, 0));
 	}
 }
 
@@ -94,6 +93,21 @@ void AATEPawn::SetDirection(const FVector Direction)
 void AATEPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	FVector NewLocation = GetActorLocation();
+
+
+	//NOT WORKING 
+
+	//if (moveUpandDown != 0)
+	//{
+	//	//ASSIGN NewLocation to the the sum of the Actors Current Location and the product of the Actors Forward Vector and the MovementForward value i.e GetActorLocation() + (GetActorForwardVector() * MovementForward)
+	//	NewLocation = GetActorLocation() + (GetActorUpVector() * -moveUpandDown * Speed);
+	//}
+	
+
+	//CALL SetActorLocation() passing in NewLocation
+	SetActorLocation(NewLocation);
 
 }
 

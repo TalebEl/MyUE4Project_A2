@@ -60,17 +60,12 @@ public:
 
 	//Function to move to paddle UP and DOWN
 	void moveUpandDown(float value);
-
 	void SpeedUp();
-
 	void SlowDown();
 
 
-
+private:
 	float moveUpAndDown;
-	
-
-
 	void SetDirection(const FVector Direction);
 
 	

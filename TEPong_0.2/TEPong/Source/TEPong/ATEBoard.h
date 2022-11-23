@@ -10,11 +10,11 @@
 
  
 
-UENUM(BlueprintType)
-enum class EGoal : uint8 {
-	LEFT = 0  UMETA(DisplayName = "Player"),
-	RIGHT = 1 UMETA(DisplayName = "AI")
-};
+//UENUM(BlueprintType)
+//enum class EGoal : uint8 {
+//	LEFT = 0  UMETA(DisplayName = "Player"),
+//	RIGHT = 1 UMETA(DisplayName = "AI")
+//};
 
 UCLASS()
 class TEPONG_API AATEBoard : public AActor
@@ -35,31 +35,27 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
 		class UBoxComponent* BottomBoundary;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
-		class UBoxComponent* LeftGoal;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
-		class UBoxComponent* RightGoal;
+	
 
 	UPROPERTY(VisibleAnywhere, Category = "Board Camera")
 		class UCameraComponent* FollowCamera;
 
-	//For the goals
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		AActor* MiddleOfField;
+	////For the goals
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+	//	AActor* MiddleOfField;
 
 
 
-	//For the points?
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		TEnumAsByte<EGoal> goal;
+	////For the points?
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+	//	TEnumAsByte<EGoal> goal;
 
 
 	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		AActor* SpawnBallInMiddle;*/
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-		UStaticMeshComponent* MeshComp;
+	/*UPROPERTY(VisibleAnywhere, Category = "Components")
+		UStaticMeshComponent* MeshComp;*/
 
 	
 

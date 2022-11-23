@@ -34,6 +34,8 @@ public:
 
     void Start();
 
+    void Destroyed();
+
 
 
 

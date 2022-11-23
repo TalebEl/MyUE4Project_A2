@@ -34,7 +34,7 @@ AATEBall::AATEBall() :
     //UPaperSpriteComponent - Ball sprite ex soccer ball from UEModes lab
     SpriteBall = CreateDefaultSubobject<UPaperSpriteComponent>("Sprite Ball");
     SpriteBall->SetupAttachment(RootComponent);
-    SpriteBall->SetRelativeLocation(FVector(-0.f, 0.f, 0.f));
+    //SpriteBall->SetRelativeLocation(FVector(-0.f, 0.f, 0.f));
 
     //UProjectileMovementComponent : Ball bounce
     BallMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>("Ball Movement Component");
@@ -56,6 +56,7 @@ AATEBall::AATEBall() :
 
 void AATEBall::StartingDirection(FVector direction)
 {
+    FVector(-0.f, 0.f, 0.f);
     //I could randomize the ball spawn
     //IF SMT 
     //ELSE
@@ -85,11 +86,11 @@ void AATEBall::Tick(float DeltaTime)
 
 }
 
-//void AATEBall::Destroyed()
-//{
-//    Super::Destroyed();
-//    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, FString::Printf(TEXT("BALL DESTROYED")));
-//}
+void AATEBall::Destroyed()
+{
+    Super::Destroyed();
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, FString::Printf(TEXT("BALL DESTROYED")));
+}
 
 UPrimitiveComponent* AATEBall::GetPhysicsComponent()
 {

@@ -35,10 +35,25 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
 		class UBoxComponent* BottomBoundary;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
+		class UBoxComponent* LeftBoundary;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
+		class UBoxComponent* RightBoundary;
+
 	
 
 	UPROPERTY(VisibleAnywhere, Category = "Board Camera")
 		class UCameraComponent* FollowCamera;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Config", meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AATEBall> BallTemplate;
+
+	UFUNCTION()
+		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+
+	void SpawnActor();
 
 	////For the goals
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)

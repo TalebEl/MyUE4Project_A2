@@ -34,18 +34,22 @@ AATEBall::AATEBall() :
     //UPaperSpriteComponent - Ball sprite ex soccer ball from UEModes lab
     SpriteBall = CreateDefaultSubobject<UPaperSpriteComponent>("Sprite Ball");
     SpriteBall->SetupAttachment(RootComponent);
+    SpriteBall->SetCollisionProfileName("NoCollision");
     //SpriteBall->SetRelativeLocation(FVector(-0.f, 0.f, 0.f));
 
     //UProjectileMovementComponent : Ball bounce
     BallMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>("Ball Movement Component");
     BallMovementComponent->SetUpdatedComponent(CollisionSphere);
     //Those are UProjectileMovementComponent variables
-    BallMovementComponent->InitialSpeed = 0.0f;
-    BallMovementComponent->MaxSpeed = 250.0f;
+    BallMovementComponent->InitialSpeed = 500.0f;
+    BallMovementComponent->MaxSpeed = 1000.0f;
     BallMovementComponent->bRotationFollowsVelocity = false;
     BallMovementComponent->bShouldBounce = true;
-    BallMovementComponent->Bounciness = 0.3f;
+    BallMovementComponent->Bounciness = 1.1f;
     BallMovementComponent->ProjectileGravityScale = 0.0f;
+    BallMovementComponent->Friction = 0.0f;
+   
+  
 
     //Where the initial start of the ball
     InitialPosition = GetActorLocation();
@@ -83,6 +87,10 @@ void AATEBall::BeginPlay()
 void AATEBall::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+    FVector pos = GetActorLocation();
+    pos.Y = 0.1f;
+    SetActorLocation(pos);
 
 }
 

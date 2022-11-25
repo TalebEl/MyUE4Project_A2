@@ -57,17 +57,20 @@ public:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-
 	//Function to move to paddle UP and DOWN
 	void moveUpandDown(float value);
 	void SpeedUp();
 	void SlowDown();
+	bool isPlayer;
+
+	UObject* Sprite;
 
 
 private:
 	float moveUpAndDown;
-	void SetDirection(const FVector Direction);
-
+	void SetDirection(float Direction);
+	FVector m_Direction;
+	
 	
 
 

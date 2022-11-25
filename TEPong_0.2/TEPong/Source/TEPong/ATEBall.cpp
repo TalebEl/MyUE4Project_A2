@@ -45,9 +45,10 @@ AATEBall::AATEBall() :
     BallMovementComponent->MaxSpeed = 1000.0f;
     BallMovementComponent->bRotationFollowsVelocity = false;
     BallMovementComponent->bShouldBounce = true;
-    BallMovementComponent->Bounciness = 1.1f;
+    BallMovementComponent->Bounciness = 10.1f;
     BallMovementComponent->ProjectileGravityScale = 0.0f;
     BallMovementComponent->Friction = 0.0f;
+  
    
   
 
@@ -80,6 +81,7 @@ void AATEBall::Start()
 void AATEBall::BeginPlay()
 {
 	Super::BeginPlay();
+   // BallMovementComponent->Velocity = FVector(-0.307107, 0, -0.307107) * BallMovementComponent->InitialSpeed;
 	
 }
 

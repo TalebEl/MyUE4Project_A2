@@ -11,6 +11,7 @@ void AATEPlayerController::OnPossess(APawn* aPawn)
     Super::OnPossess(aPawn);
 
     MyPawn = Cast<AATEPawn>(aPawn);
+    MyPawn->isPlayer = true;
     GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Yellow,
         "AMyPlayerController::Possess: - " + aPawn->GetName());
 }
@@ -31,7 +32,7 @@ void AATEPlayerController::SetupInputComponent()
 
     if (InputComponent != nullptr)
     {
-        InputComponent->BindAxis("MoveForward", this, &AATEPlayerController::moveUpandDown);
+        InputComponent->BindAxis("moveUpandDown", this, &AATEPlayerController::moveUpandDown);
         InputComponent->BindAction("Speed", IE_Pressed, this, &AATEPlayerController::SpeedUp);
         InputComponent->BindAction("Speed", IE_Released, this, &AATEPlayerController::SlowDown);
     }
@@ -44,7 +45,7 @@ void AATEPlayerController::AcknowledgePossession(APawn* PossesedPawn)
 
 void AATEPlayerController::moveUpandDown(float value)
 {
-    if (MyPawn)
+    //if (MyPawn)
         MyPawn->moveUpandDown(value);
 }
 

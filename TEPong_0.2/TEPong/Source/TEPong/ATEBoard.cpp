@@ -39,14 +39,10 @@ AATEBoard::AATEBoard()
 	TopBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	TopBoundary->SetupAttachment(RootComponent);
 
-
-
 	BottomBoundary = CreateDefaultSubobject<UBoxComponent>("BottomBox Collision");
 	BottomBoundary->SetCollisionProfileName("BlockAllDynamic");
 	BottomBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	BottomBoundary->SetupAttachment(RootComponent);
-
-
 
 	//LeftBoundary->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
 	 LeftBoundary = CreateDefaultSubobject<UBoxComponent>("Left Collision");

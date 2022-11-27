@@ -21,6 +21,8 @@ protected:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//class UPrimitiveComponent* GetPhysicsComponent();
+
 	/*UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ball Bounce")
 		class UProjectileMovementComponent* BallBounce;*/
 
@@ -70,6 +72,9 @@ private:
 	float moveUpAndDown;
 	void SetDirection(float Direction);
 	FVector m_Direction;
+
+	FVector m_TopBorder;
+	FVector m_BottomBorder;
 	
 	
 

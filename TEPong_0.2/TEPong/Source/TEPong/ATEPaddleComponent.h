@@ -17,5 +17,7 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Movement Properties")
 		float Speed = 1;
+
+	//UFUNCTION(Blue)
 		
 };

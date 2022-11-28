@@ -33,8 +33,8 @@ void AATEPlayerController::SetupInputComponent()
     if (InputComponent != nullptr)
     {
         InputComponent->BindAxis("moveUpandDown", this, &AATEPlayerController::moveUpandDown);
-        InputComponent->BindAction("Speed", IE_Pressed, this, &AATEPlayerController::SpeedUp);
-        InputComponent->BindAction("Speed", IE_Released, this, &AATEPlayerController::SlowDown);
+       /* InputComponent->BindAction("Speed", IE_Pressed, this, &AATEPlayerController::SpeedUp);
+        InputComponent->BindAction("Speed", IE_Released, this, &AATEPlayerController::SlowDown);*/
     }
 }
 

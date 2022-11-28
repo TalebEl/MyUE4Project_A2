@@ -14,25 +14,12 @@
 // Sets default values
 AATEBoard::AATEBoard()
 {
- 	 //Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	//Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	//creates an instance of UBoxComponent 
-	//BoxCollsion = CreateDefaultSubobject<UBoxComponent>("Box Collision");
-	//BoxCollsion->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
-	//BoxCollsion->SetSimulatePhysics(false);
-	//BoxCollsion->SetCollisionProfileName("OverlapAllDynamic");
-	//BoxCollsion->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	//BoxCollsion->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
-	//BoxCollsion->OnComponentEndOverlap.AddDynamic(this, &AATEBoard::EndOverlap);
-	//SetRootComponent(BoxCollsion);
 
 	BoardVisual = CreateDefaultSubobject<UPaperSpriteComponent>("Box Visual");
 	//Setting the rootComponent to the boardVisual
 	SetRootComponent(BoardVisual);
-	
-	
-
 
 	TopBoundary = CreateDefaultSubobject<UBoxComponent>("TopBox Collision");
 	TopBoundary->SetCollisionProfileName("BlockAllDynamic");
@@ -45,60 +32,61 @@ AATEBoard::AATEBoard()
 	BottomBoundary->SetupAttachment(RootComponent);
 
 	//LeftBoundary->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
-	 LeftBoundary = CreateDefaultSubobject<UBoxComponent>("Left Collision");
-	 LeftBoundary->SetCollisionProfileName("BlockAllDynamic");
-	 LeftBoundary->SetSimulatePhysics(false);
-	 LeftBoundary->OnComponentHit.AddDynamic(this, &AATEBoard::OnHit);
-	 LeftBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	 LeftBoundary->SetupAttachment(RootComponent);
+	LeftBoundary = CreateDefaultSubobject<UBoxComponent>("Left Collision");
+	//LeftBoundary->SetCollisionProfileName("BlockAllDynamic");
+	LeftBoundary->SetCollisionProfileName("OverlapAllDynamic");
+	LeftBoundary->SetSimulatePhysics(false);
+	//LeftBoundary->OnComponentHit.AddDynamic(this, &AATEBoard::OnHit);
+	LeftBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	LeftBoundary->SetupAttachment(RootComponent);
 
-	 //RightBoundary->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
-	 RightBoundary = CreateDefaultSubobject<UBoxComponent>("Right Collision");
-	 RightBoundary->SetCollisionProfileName("BlockAllDynamic");
-	 RightBoundary->SetSimulatePhysics(false);
-	 RightBoundary->OnComponentHit.AddDynamic(this, &AATEBoard::OnHit);
-	 RightBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	 RightBoundary->SetupAttachment(RootComponent);
+	//RightBoundary->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
+	LeftBoundary->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
+	RightBoundary = CreateDefaultSubobject<UBoxComponent>("Right Collision");
+	//RightBoundary->SetCollisionProfileName("BlockAllDynamic");
+	RightBoundary->SetCollisionProfileName("OverlapAllDynamic");
+	RightBoundary->SetSimulatePhysics(false);
+	//RightBoundary->OnComponentHit.AddDynamic(this, &AATEBoard::OnHit);
+	RightBoundary->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
+	RightBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	RightBoundary->SetupAttachment(RootComponent);
 
-	
+
 
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>("Board Camera");
 	FollowCamera->SetProjectionMode(ECameraProjectionMode::Orthographic);
 	FollowCamera->SetOrthoWidth(1750.0f);
 	FollowCamera->SetupAttachment(RootComponent);
 
-	//Left Goal
-	//LeftGoal = CreateDefaultSubobject<UBoxComponent>("LeftBox Overlap");
-	////LeftGoal->SetSimulatePhysics(false);
-	//LeftGoal->SetCollisionProfileName("OverlapAllDynamic");
-	//LeftGoal->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	//LeftGoal->SetupAttachment(RootComponent);
-	//LeftGoal->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
-	////Right Goal
-	//RightGoal = CreateDefaultSubobject<UBoxComponent>("RightBox Overlap");
-	////RightGoal->SetSimulatePhysics(false);
-	//RightGoal->SetCollisionProfileName("OverlapAllDynamic");
-	//RightGoal->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	//RightGoal->SetupAttachment(RootComponent);
-	//RightGoal->OnComponentBeginOverlap.AddDynamic(this, &AATEBoard::BeginOverlap);
-	
-	
+}
 
+void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	OtherActor->Destroy();
+	SpawnActor();
 
-	//RightGoal->SetupAttachment(RootComponent);
+	if (OtherActor->IsA<AATEBall>())
+	{
 
-	//Static mesh Component
-	//MeshComp = CreateDefaultSubobject<UStaticMeshComponent>("Components");
+		AATEGameModeBase* gameMode = Cast<AATEGameModeBase>(GetWorld()->GetAuthGameMode());
 
+		AATEGameStateBase* gameState = gameMode->GetGameState<AATEGameStateBase>();
 
-} 
+		if (goal == EGoal::LEFT)
+			gameState->NumberOfLeftGoals++;
+		else
+			gameState->NumberOfRightGoals++;
+
+	}
+
+}
 
 // Called when the game starts or when spawned
 void AATEBoard::BeginPlay()
 {
 	SpawnActor();
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -131,42 +119,23 @@ void AATEBoard::SpawnActor()
 		//IF World is NOT EQUAL to nullptr
 		if (World)
 		{
-			
+
 			FActorSpawnParameters SpawnParams;
-			
+
 			SpawnParams.Owner = this;
-			
+
 			SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-			
+
 			FTransform SpawnTransform;// = SpawnPointComponent->GetComponentTransform();
-			
+
 			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
 
-		
-
-			//IF SpawnedActor NOT EQUAL to nullptr
-			//if (SpawnedActor)
-			//{
-			//	//DECLARE a variable called direction of type FVector and assign it to the return value of --> FRotationMatrix(SpawnTransform.Rotator()).GetScaledAxis(EAxis::X)
-			//	// direction = FRotationMatrix(SpawnTransform.Rotator()).GetScaledAxis(EAxis::X);
-			//	//DECLARE a variable called physicsComponent of type UPrimitiveComponent* and assign it to the return value of --> SpawnedActor->GetPhysicsComponent()
-			//	//UPrimitiveComponent* physicsComponent = SpawnedActor->GetPhysicsComponent();
-			//	//CALL AddForce(..) on the physicsComponent and pass in --> direction * 1000000, NAME_None, true
-			//	//physicsComponent->AddForce(direction * 1000000, NAME_None, true);
-			//}
-			//ENDIF SpawnedActor NOT EQUAL to nullptr
 		}
-		//ENDIF World is NOT EQUAL to nullptr
-
-	}//ENDIF the BallTemplate NOT EQUAL to nullptr
-
+	}
 }
 
-void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	OtherActor->Destroy();
-}
+
 
 void AATEBoard::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
@@ -208,15 +177,4 @@ void AATEBoard::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 //	}
 //}
 
-//void AATEBoard::EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-//{
-//	if (OtherActor && OtherActor != this)
-//	{
-//		if (GEngine)
-//		{
-//			GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green, TEXT("Overlap Ended"));
-//			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Magenta, FString::Printf(TEXT("%s has left the Trigger Volume"), *OtherActor->GetName()));
-//		}
-//	}
-//}
 

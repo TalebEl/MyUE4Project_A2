@@ -34,7 +34,7 @@ public:
 
     void Start();
 
-    void Destroyed();
+    virtual void Destroyed() override;
 
 
 

@@ -10,11 +10,11 @@
 
  
 
-//UENUM(BlueprintType)
-//enum class EGoal : uint8 {
-//	LEFT = 0  UMETA(DisplayName = "Player"),
-//	RIGHT = 1 UMETA(DisplayName = "AI")
-//};
+UENUM(BlueprintType)
+enum class EGoal : uint8 {
+	LEFT = 0  UMETA(DisplayName = "LEFT"),
+	RIGHT = 1 UMETA(DisplayName = "RIGHT")
+};
 
 UCLASS()
 class TEPONG_API AATEBoard : public AActor
@@ -52,39 +52,21 @@ public:
 	UFUNCTION()
 		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
+	//For the points
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+		TEnumAsByte<EGoal> goal;
+
+	//For the goals
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+		AActor* MiddleOfField;
 
 	void SpawnActor();
-
-	////For the goals
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-	//	AActor* MiddleOfField;
-
-
-
-	////For the points?
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-	//	TEnumAsByte<EGoal> goal;
-
-
-	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		AActor* SpawnBallInMiddle;*/
-
-	/*UPROPERTY(VisibleAnywhere, Category = "Components")
-		UStaticMeshComponent* MeshComp;*/
-
 	
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-
-	//Function that I could call
-	//getScaledBoxExtent()
-
-
-
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

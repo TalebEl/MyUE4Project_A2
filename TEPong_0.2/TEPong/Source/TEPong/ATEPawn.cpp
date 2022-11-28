@@ -137,6 +137,8 @@ void AATEPawn::Tick(float DeltaTime)
 	//SetActorLocation(pos);
 	if (isPlayer)
 	{
+		//AI LOGIC GOES HERE 
+		// Set the ball to the paddle if isplayer is false? Not sure
 		//SetActorLocation("");
 	}
 

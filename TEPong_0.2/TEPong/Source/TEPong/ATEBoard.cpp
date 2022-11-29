@@ -76,7 +76,7 @@ void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* O
 			gameState->NumberOfLeftGoals++;
 		else
 			gameState->NumberOfRightGoals++;
-
+			
 	}
 
 }

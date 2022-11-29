@@ -70,7 +70,7 @@ public:
 
 private:
 	float moveUpAndDown;
-	void SetDirection(float Direction);
+	//void SetDirection(float Direction);
 	FVector m_Direction;
 
 	FVector m_TopBorder;

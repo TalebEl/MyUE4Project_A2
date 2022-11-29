@@ -19,9 +19,9 @@ void AATEAIPawn::BeginPlay()
 }
 
 // Called every frame
-void AATEAIPawn::Tick(float DeltaTime)
+void AATEAIPawn::Tick(float DeltaSeconds)
 {
-	Super::Tick(DeltaTime);
+	Super::Tick(DeltaSeconds);
 
 	if (Ball)
 	{
@@ -31,13 +31,13 @@ void AATEAIPawn::Tick(float DeltaTime)
 
 		TargetLocation.Z = BallLocation.Z;
 
-		SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), TargetLocation, DeltaTime, DuficultyFactor));
+		SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), TargetLocation, DeltaSeconds, DuficultyFactor));
 
 	}
 	//Iniatial Location
 	else
 	{
-		SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), Initialocation, DeltaTime, DuficultyFactor));
+		SetActorLocation(FMath::VInterpConstantTo(GetActorLocation(), Initialocation, DeltaSeconds, DuficultyFactor));
 	}
 
 }

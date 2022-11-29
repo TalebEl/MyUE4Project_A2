@@ -49,14 +49,14 @@ void AATEPlayerController::moveUpandDown(float value)
         MyPawn->moveUpandDown(value);
 }
 
-void AATEPlayerController::SpeedUp()
-{
-    if (MyPawn)
-        MyPawn->SpeedUp();
-}
-
-void AATEPlayerController::SlowDown()
-{
-    if (MyPawn)
-        MyPawn->SlowDown();
-}
+//void AATEPlayerController::SpeedUp()
+//{
+//    if (MyPawn)
+//        MyPawn->SpeedUp();
+//}
+//
+//void AATEPlayerController::SlowDown()
+//{
+//    if (MyPawn)
+//        MyPawn->SlowDown();
+//}

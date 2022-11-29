@@ -20,17 +20,17 @@ AATEPawn::AATEPawn()
 	PlayerRootCollisionBox->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	//PlayerRootCollisionBox->SetRelativeRotation(FRotator(0, 90.0f, 0));
 	//PlayerRootCollisionBox->GetBodyInstance()->bLockRotation = true;// BodyInstance.bLockXRotation = true; SetConstraintMode(EDOFMode::XZPlane)
-	//PlayerRootCollisionBox->GetBodyInstance()->bLockXRotation = true;
-	//PlayerRootCollisionBox->GetBodyInstance()->bLockYRotation = true;
-	//PlayerRootCollisionBox->GetBodyInstance()->bLockZRotation = true;
-	//PlayerRootCollisionBox->GetBodyInstance()->bLockYTranslation = true;
-	//PlayerRootCollisionBox->GetBodyInstance()->bLockXTranslation = true;
+	PlayerRootCollisionBox->GetBodyInstance()->bLockXRotation = true;
+	PlayerRootCollisionBox->GetBodyInstance()->bLockYRotation = true;
+	PlayerRootCollisionBox->GetBodyInstance()->bLockZRotation = true;
+	PlayerRootCollisionBox->GetBodyInstance()->bLockYTranslation = true;
+	PlayerRootCollisionBox->GetBodyInstance()->bLockXTranslation = true;
 
 	SetRootComponent(PlayerRootCollisionBox);
 	//PlayerRootCollisionBox->SetWorldLocation(FVector(-400, 2.0f, 0));
 //	PlayerRootCollisionBox->SetRelativeLocation(FVector(-400, 2.0f, 0));
 	//PlayerRootCollisionBox->SetupAttachment(RootComponent);
-	isPlayer = false;
+	//isPlayer = false;
  	
 	//UPaperSpriteComponent
 	PawnSpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>("Pawn Sprite");
@@ -84,11 +84,11 @@ void AATEPawn::moveUpandDown(float value)
 {
 	moveUpAndDown = value;
 
-	if (value > 0)
-		SetDirection(1.0f);
+	//if (value > 0)
+	//	SetDirection(1.0f);
 
-	if (value < 0)
-		SetDirection(-1.0f);
+	//if (value < 0)
+	//	SetDirection(-1.0f);
 }
 
 void AATEPawn::SpeedUp()
@@ -109,22 +109,22 @@ void AATEPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void AATEPawn::SetDirection(float Direction)
-{
-	/*CORE_API const FVector FVector::UpVector(0.0f, 0.0f, 1.0f);
-	CORE_API const FVector FVector::DownVector(0.0f, 0.0f, -1.0f);*/
-	m_Direction = FVector(0.0f, 0.0f, 0.0f);
-
-	if (Direction == 1.0f) {
-		//PawnSpriteComponent->SetRelativeRotation(FRotator(0, 0, 0));
-		
-		m_Direction = FVector(0.0f,0.0f,Direction);
-	}
-	else if (Direction == -1.0f) {
-		m_Direction = FVector(0.0f, 0.0f, Direction);
-	}
-	//SetActorLocation(GetActorLocation() + SetDirection * 5000.0f);
-}
+//void AATEPawn::SetDirection(float Direction)
+//{
+//	/*CORE_API const FVector FVector::UpVector(0.0f, 0.0f, 1.0f);
+//	CORE_API const FVector FVector::DownVector(0.0f, 0.0f, -1.0f);*/
+//	m_Direction = FVector(0.0f, 0.0f, 0.0f);
+//
+//	if (Direction == 1.0f) {
+//		//PawnSpriteComponent->SetRelativeRotation(FRotator(0, 0, 0));
+//		
+//		m_Direction = FVector(0.0f,0.0f,Direction);
+//	}
+//	else if (Direction == -1.0f) {
+//		m_Direction = FVector(0.0f, 0.0f, Direction);
+//	}
+//	//SetActorLocation(GetActorLocation() + SetDirection * 5000.0f);
+//}
 
 
 // Called every frame
@@ -142,28 +142,34 @@ void AATEPawn::Tick(float DeltaTime)
 		//SetActorLocation("");
 	}
 
-	if (!m_Direction.IsZero())
-	{
-		FVector NewLocation = GetActorLocation() + (m_Direction * 200.0f * DeltaTime);
-		SetActorLocation(NewLocation);
+	//if (!m_Direction.IsZero())
+	//{
+		//FVector NewLocation = GetActorLocation() + (moveUpAndDown * 200.0f * DeltaTime);
+		//SetActorLocation(NewLocation);
 
-		FVector OldLocation = GetActorLocation();
+		FVector Location = GetActorLocation();
+
+		Location.Z += moveUpAndDown * DeltaTime * 200.0f;
+
+		SetActorLocation(Location);
+
+		//FVector OldLocation = GetActorLocation();
 		//int x = 2;
-	}
+	//}
 
 
 	//Trying to Set Bounderies for The Paddle
 	//Boundaries of the Paddle
-	if (GetActorLocation().Z < -199.0f || GetActorLocation().Z > 199.0f)
-	{	
-		//SetActorLocation(FVector(FMath::Clamp(GetActorLocation().X, -201.0f, 201.0f)), GetActorLocation().Y, GetActorLocation().Z));
-		//SetActorLocation(FVector(FMath::Clamp(GetActorLocation().Z, -200.0f, 200.0f), GetActorLocation().Y,GetActorLocation().X));
+	//if (GetActorLocation().Z < -199.0f || GetActorLocation().Z > 199.0f)
+	//{	
+	//	//SetActorLocation(FVector(FMath::Clamp(GetActorLocation().X, -201.0f, 201.0f)), GetActorLocation().Y, GetActorLocation().Z));
+	//	//SetActorLocation(FVector(FMath::Clamp(GetActorLocation().Z, -200.0f, 200.0f), GetActorLocation().Y,GetActorLocation().X));
 
-		//Only Blocks the Bottom -200.0f Z Axis but not the top(The top teleports the paddle at the bottom -200 )
-		SetActorLocation(FVector(FMath::Clamp(GetActorLocation().X, -400.0f, -400.0f), (GetActorLocation().Y, 2.0f, 2.0f),(GetActorLocation().Z, 200.0f, -200.0f)));
-		
+	//	//Only Blocks the Bottom -200.0f Z Axis but not the top(The top teleports the paddle at the bottom -200 )
+	//	SetActorLocation(FVector(FMath::Clamp(GetActorLocation().X, -400.0f, -400.0f), (GetActorLocation().Y, 2.0f, 2.0f),(GetActorLocation().Z, 200.0f, -200.0f)));
+	//	
 
-	}
+	//}
 
 
 	/*FVector PaddlePos = GetActorLocation();

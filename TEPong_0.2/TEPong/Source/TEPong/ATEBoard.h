@@ -8,6 +8,8 @@
 #include "ATEBoard.generated.h"
 
 
+
+
  
 
 UENUM(BlueprintType)
@@ -59,6 +61,10 @@ public:
 	//For the goals
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		AActor* MiddleOfField;
+
+	//AI_paddle pointer
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		 class AATEAIPawn* AI_Paddle;
 
 	void SpawnActor();
 	

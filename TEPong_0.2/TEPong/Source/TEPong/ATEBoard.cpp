@@ -10,6 +10,7 @@
 #include "ATEBall.h"
 #include "ATEGameModeBase.h"
 #include "ATEGameStateBase.h"
+#include "ATEAIPawn.h"
 
 // Sets default values
 AATEBoard::AATEBoard()
@@ -131,7 +132,9 @@ void AATEBoard::SpawnActor()
 
 			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
 
+			AI_Paddle->SetBall(SpawnedActor);
 		}
+
 	}
 }
 

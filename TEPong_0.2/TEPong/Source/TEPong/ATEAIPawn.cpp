@@ -18,6 +18,8 @@ void AATEAIPawn::BeginPlay()
 	
 }
 
+
+
 // Called every frame
 void AATEAIPawn::Tick(float DeltaSeconds)
 {
@@ -42,10 +44,4 @@ void AATEAIPawn::Tick(float DeltaSeconds)
 
 }
 
-// Called to bind functionality to input
-void AATEAIPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
 

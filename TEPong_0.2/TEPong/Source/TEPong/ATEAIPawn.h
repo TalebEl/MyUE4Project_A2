@@ -18,15 +18,18 @@ public:
 	// Sets default values for this pawn's properties
 	AATEAIPawn();
 
+	//Called to set new ball reference
 	UFUNCTION(BlueprintCallable,Category = "AAA")
 		void SetBall(class AATEBall* BallToSet) { Ball = BallToSet; }
 
 	UPROPERTY(VisibleAnywhere, Category = "Difficulty Factor")
 		float DuficultyFactor;
 
+	//On board ball reference
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "config")
 		class AATEBall* Ball;
 
+	//AI Initial Location
 	UPROPERTY()
 		FVector Initialocation;
 
@@ -45,7 +48,5 @@ private:
 
 public:	
 	
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 };

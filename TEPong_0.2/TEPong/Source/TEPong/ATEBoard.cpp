@@ -1,12 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "ATEBoard.h"
 #include "Components/BoxComponent.h"
 //Fuction that I can use ,editable mesh(),...
 //For the static mesh(Board)
 #include "Components/StaticMeshComponent.h"
 #include "PaperSpriteComponent.h"
 #include "Camera/CameraComponent.h"
-#include "ATEBoard.h"
 #include "ATEBall.h"
 #include "ATEGameModeBase.h"
 #include "ATEGameStateBase.h"

@@ -66,7 +66,7 @@ void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* O
 	OtherActor->Destroy();
 	SpawnActor();
 
-	if (OtherActor->IsA<AATEBall>())
+	/*if (OtherActor->IsA<AATEBall>())
 	{
 
 		AATEGameModeBase* gameMode = Cast<AATEGameModeBase>(GetWorld()->GetAuthGameMode());
@@ -78,7 +78,7 @@ void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* O
 		else
 			gameState->NumberOfRightGoals++;
 			
-	}
+	}*/
 
 }
 
@@ -131,7 +131,7 @@ void AATEBoard::SpawnActor()
 			FTransform SpawnTransform;// = SpawnPointComponent->GetComponentTransform();
 
 			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
-
+	
 			AI_Paddle->SetBall(SpawnedActor);
 		}
 

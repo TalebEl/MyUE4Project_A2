@@ -22,7 +22,7 @@ public:
 	UFUNCTION(BlueprintCallable,Category = "AAA")
 		void SetBall(class AATEBall* BallToSet) { Ball = BallToSet; }
 
-	UPROPERTY(VisibleAnywhere, Category = "Difficulty Factor")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Difficulty Factor")
 		float DuficultyFactor;
 
 	//On board ball reference

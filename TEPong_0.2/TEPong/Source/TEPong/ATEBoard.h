@@ -11,11 +11,11 @@
 
  
 
-UENUM(BlueprintType)
-enum class EGoal : uint8 {
-	LEFT = 0  UMETA(DisplayName = "LEFT"),
-	RIGHT = 1 UMETA(DisplayName = "RIGHT")
-};
+//UENUM(BlueprintType)
+//enum class EGoal : uint8 {
+//	LEFT = 0  UMETA(DisplayName = "LEFT"),
+//	RIGHT = 1 UMETA(DisplayName = "RIGHT")
+//};
 
 UCLASS()
 class TEPONG_API AATEBoard : public AActor
@@ -54,8 +54,8 @@ public:
 		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	//For the points
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		TEnumAsByte<EGoal> goal;
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+		TEnumAsByte<EGoal> goal;*/
 
 	//For the goals
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)

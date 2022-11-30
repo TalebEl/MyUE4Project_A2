@@ -36,13 +36,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
 		class UBoxComponent* BottomBoundary;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
+
+	/*UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
 		class UBoxComponent* LeftBoundary;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Box Collision")
-		class UBoxComponent* RightBoundary;
+		class UBoxComponent* RightBoundary;*/
 
-	
 
 	UPROPERTY(VisibleAnywhere, Category = "Board Camera")
 		class UCameraComponent* FollowCamera;
@@ -53,9 +53,12 @@ public:
 	UFUNCTION()
 		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
-	//For the points
-	/*UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-		TEnumAsByte<EGoal> goal;*/
+	////For the points
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+	//	TEnumAsByte<EGoal> Leftgoal;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
+	//	TEnumAsByte<EGoal>	Rightgoal;
 
 	//For the goals
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
@@ -75,6 +78,7 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
 
 	UFUNCTION()
 		//Check for more info LAB UEModes-Complete 

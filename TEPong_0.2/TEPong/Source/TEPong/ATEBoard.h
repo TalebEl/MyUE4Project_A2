@@ -47,8 +47,7 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Board Camera")
 		class UCameraComponent* FollowCamera;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Config", meta = (AllowPrivateAccess = "true"))
-		TSubclassOf<class AATEBall> BallTemplate;
+	
 
 	UFUNCTION()
 		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
@@ -61,11 +60,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		AActor* MiddleOfField;
 
-	//AI_paddle pointer
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		 class AATEAIPawn* AI_Paddle;
+	////AI_paddle pointer
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//	 class AATEAIPawn* AI_Paddle;
 
-	void SpawnActor();
 	
 protected:
 	// Called when the game starts or when spawned

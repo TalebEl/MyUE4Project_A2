@@ -37,6 +37,15 @@ public:
 	UFUNCTION()
 		void EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Config", meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AATEBall> BallTemplate;
+
+	UFUNCTION()
+		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	//AI_paddle pointer
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class AATEAIPawn* AI_Paddle;
 
 protected:
 	// Called when the game starts or when spawned
@@ -46,6 +55,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	
+	void SpawnActor();
 
 
 };

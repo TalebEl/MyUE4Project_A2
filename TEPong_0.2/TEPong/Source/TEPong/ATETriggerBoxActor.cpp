@@ -6,6 +6,7 @@
 #include "ATEGameModeBase.h"
 #include "ATEGameStateBase.h"
 #include "ATEBall.h"
+#include "ATEAIPawn.h"
 
 // Sets default values
 AATETriggerBoxActor::AATETriggerBoxActor()
@@ -13,17 +14,13 @@ AATETriggerBoxActor::AATETriggerBoxActor()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	GoalTrigger = CreateDefaultSubobject<UBoxComponent>("SceneRoot");
-
-	GoalTrigger->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
-	//3
+	GoalTrigger = CreateDefaultSubobject<UBoxComponent>("Left Collision");
+	//GoalTrigger->SetBoxExtent(FVector(120, 50, 140)); //100,10,100
 	GoalTrigger->SetSimulatePhysics(false);
-	//4 - Add a Step and show camera .
 	GoalTrigger->SetCollisionProfileName("OverlapAllDynamic");
-	//5	
+	GoalTrigger->SetCollisionProfileName("BlockAllDynamic");
+	GoalTrigger->OnComponentHit.AddDynamic(this, &AATETriggerBoxActor::OnHit);
 	GoalTrigger->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-
-	//6
 	GoalTrigger->OnComponentBeginOverlap.AddDynamic(this, &AATETriggerBoxActor::BeginOverlap);
 	GoalTrigger->OnComponentEndOverlap.AddDynamic(this, &AATETriggerBoxActor::EndOverlap);
 
@@ -82,5 +79,46 @@ void AATETriggerBoxActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AATETriggerBoxActor::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
+	if (OtherActor && OtherActor != this)
+	{
+		if (GEngine)
+		{
+			OtherActor->Destroy();
+			SpawnActor();
+			//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Magenta, FString::Printf(TEXT("%s has Hit"), *OtherActor->GetName()));
+		}
+	}
+}
+
+void AATETriggerBoxActor::SpawnActor()
+{
+	//IF the BallTemplate NOT EQUAL to nullptr
+	if (BallTemplate != nullptr)
+	{
+		//DECLARE a variable called World of type const UWorld* and assign it to the return value of GetWorld()
+		UWorld* World = GetWorld();
+		//IF World is NOT EQUAL to nullptr
+		if (World)
+		{
+
+			FActorSpawnParameters SpawnParams;
+
+			SpawnParams.Owner = this;
+
+			SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+
+			FTransform SpawnTransform;// = SpawnPointComponent->GetComponentTransform();
+
+			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
+
+			AI_Paddle->SetBall(SpawnedActor);
+		}
+
+	}
 }
 

@@ -24,6 +24,7 @@ AATEBall::AATEBall() :
     //USphereComponent - Collision box
     CollisionSphere = CreateDefaultSubobject<USphereComponent>("Sphere Component");
     CollisionSphere->SetSphereRadius(4.0f);//Might change later
+
     CollisionSphere->SetCollisionProfileName("BlockAll");
 
     

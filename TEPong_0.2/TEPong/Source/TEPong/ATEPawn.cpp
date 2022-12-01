@@ -47,7 +47,7 @@ AATEPawn::AATEPawn()
 	//PawnSpriteComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	PawnSpriteComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
-	//m_BottomBorder = FVector((0.0f, 0.0f, -200.0f));
+	m_BottomBorder = FVector((0.0f, 0.0f, -200.0f));
 	m_TopBorder = FVector((0.0f, 0.0f, 200.0f));
 
 }
@@ -153,6 +153,9 @@ void AATEPawn::Tick(float DeltaTime)
 
 		SetActorLocation(Location);
 
+
+		
+
 		//FVector OldLocation = GetActorLocation();
 		//int x = 2;
 	//}
@@ -166,9 +169,7 @@ void AATEPawn::Tick(float DeltaTime)
 	//	//SetActorLocation(FVector(FMath::Clamp(GetActorLocation().Z, -200.0f, 200.0f), GetActorLocation().Y,GetActorLocation().X));
 
 	//	//Only Blocks the Bottom -200.0f Z Axis but not the top(The top teleports the paddle at the bottom -200 )
-	//	SetActorLocation(FVector(FMath::Clamp(GetActorLocation().X, -400.0f, -400.0f), (GetActorLocation().Y, 2.0f, 2.0f),(GetActorLocation().Z, 200.0f, -200.0f)));
-	//	
-
+		//SetActorLocation(FVector(FMath::Clamp(GetActorLocation().X, GetActorLocation().Y,(GetActorLocation().Z, 200.0f, -200.0f))));	
 	//}
 
 

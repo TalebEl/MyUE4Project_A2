@@ -49,8 +49,8 @@ public:
 
 	
 
-	UFUNCTION()
-		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+	/*UFUNCTION()
+		void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);*/
 
 	////For the points
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
@@ -63,9 +63,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		AActor* MiddleOfField;
 
-	////AI_paddle pointer
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//	 class AATEAIPawn* AI_Paddle;
+	//AI_paddle pointer
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		 class AATEAIPawn* AI_Paddle;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class AATEBall* BallTemplate;
 
 	
 protected:
@@ -76,6 +79,8 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void SpawnActor();
 
 
 	UFUNCTION()

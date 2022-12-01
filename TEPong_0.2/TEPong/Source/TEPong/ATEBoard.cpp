@@ -61,34 +61,34 @@ AATEBoard::AATEBoard()
 
 }
 
-//void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-//{
-//	OtherActor->Destroy();
-//	SpawnActor();
-//
-//	/*if (OtherActor->IsA<AATEBall>())
-//	{
-//
-//		AATEGameModeBase* gameMode = Cast<AATEGameModeBase>(GetWorld()->GetAuthGameMode());
-//
-//		AATEGameStateBase* gameState = gameMode->GetGameState<AATEGameStateBase>();
-//
-//		if (goal == EGoal::LEFT)
-//			gameState->NumberOfLeftGoals++;
-//		else
-//			gameState->NumberOfRightGoals++;
-//			
-//	}*/
-//
-//}
+void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	OtherActor->Destroy();
+	SpawnActor();
 
-// Called when the game starts or when spawned
-//void AATEBoard::BeginPlay()
-//{
-//	SpawnActor();
-//	Super::BeginPlay();
-//
-//}
+	/*if (OtherActor->IsA<AATEBall>())
+	{
+
+		AATEGameModeBase* gameMode = Cast<AATEGameModeBase>(GetWorld()->GetAuthGameMode());
+
+		AATEGameStateBase* gameState = gameMode->GetGameState<AATEGameStateBase>();
+
+		if (goal == EGoal::LEFT)
+			gameState->NumberOfLeftGoals++;
+		else
+			gameState->NumberOfRightGoals++;
+			
+	}*/
+
+}
+
+ //Called when the game starts or when spawned
+void AATEBoard::BeginPlay()
+{
+	SpawnActor();
+	Super::BeginPlay();
+
+}
 
 // Called every frame
 void AATEBoard::Tick(float DeltaTime)
@@ -110,33 +110,33 @@ void AATEBoard::Tick(float DeltaTime)
 //	}
 //}
 
-//void AATEBoard::SpawnActor()
-//{
-//	//IF the BallTemplate NOT EQUAL to nullptr
-//	if (BallTemplate != nullptr)
-//	{
-//		//DECLARE a variable called World of type const UWorld* and assign it to the return value of GetWorld()
-//		UWorld* World = GetWorld();
-//		//IF World is NOT EQUAL to nullptr
-//		if (World)
-//		{
-//
-//			FActorSpawnParameters SpawnParams;
-//
-//			SpawnParams.Owner = this;
-//
-//			SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-//
-//
-//			FTransform SpawnTransform;// = SpawnPointComponent->GetComponentTransform();
-//
-//			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
-//	
-//			AI_Paddle->SetBall(SpawnedActor);
-//		}
-//
-//	}
-//}
+void AATEBoard::SpawnActor()
+{
+	//IF the BallTemplate NOT EQUAL to nullptr
+	if (BallTemplate != nullptr)
+	{
+		//DECLARE a variable called World of type const UWorld* and assign it to the return value of GetWorld()
+		UWorld* World = GetWorld();
+		//IF World is NOT EQUAL to nullptr
+		if (World)
+		{
+
+			FActorSpawnParameters SpawnParams;
+
+			SpawnParams.Owner = this;
+
+			SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+
+			FTransform SpawnTransform;// = SpawnPointComponent->GetComponentTransform();
+
+			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
+	
+			AI_Paddle->SetBall(SpawnedActor);
+		}
+
+	}
+}
 
 
 

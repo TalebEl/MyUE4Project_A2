@@ -47,6 +47,9 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Board Camera")
 		class UCameraComponent* FollowCamera;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Config", meta = (AllowPrivateAccess = "true"))
+		TSubclassOf<class AATEBall> BallTemplate;
+
 	
 
 	/*UFUNCTION()
@@ -67,8 +70,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		 class AATEAIPawn* AI_Paddle;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class AATEBall* BallTemplate;
+	/*UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class AATEBall* BallTemplate;*/
+
+		/* arrow component  */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+		class UArrowComponent* SpawnPointComponent;
 
 	
 protected:

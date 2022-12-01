@@ -10,6 +10,8 @@
 #include "ATEGameModeBase.h"
 #include "ATEGameStateBase.h"
 #include "ATEAIPawn.h"
+#include "ATEBoard.h"
+#include "EngineUtils.h"
 
 // Sets default values
 AATETriggerCollision::AATETriggerCollision()
@@ -47,11 +49,11 @@ void AATETriggerCollision::BeginOverlap(UPrimitiveComponent* OverlappedComponent
 {
 	if (OtherActor && OtherActor != this)
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green, TEXT("Overlap Begin"));
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Magenta, FString::Printf(TEXT("Overlapping Actor = %s"), *OtherActor->GetName()));
-		}
+		}*/
 		if(OtherActor->IsA<AATEBall>())
 		{
 			//CALL TeleportTo() on OtherActor passing in MiddleOfField->GetActorLocation(), FRotator::ZeroRotator
@@ -66,6 +68,29 @@ void AATETriggerCollision::BeginOverlap(UPrimitiveComponent* OverlappedComponent
 			else
 				gameState->NumberOfRightGoals++;
 
+
+			OtherActor->Destroy();
+
+			//if (MyBoard != nullptr)
+			//	MyBoard->SpawnActor();
+			
+			for (TActorIterator<AActor> Actor(GetWorld()); Actor; ++Actor)
+			{
+				if (GEngine != nullptr)
+				{
+					if (Actor->GetClass() == BoardClass)
+					{
+						MyBoard = Cast<AATEBoard>(*Actor);
+						MyBoard->SpawnActor();
+					}
+				}
+			}
+
+
+			/*AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
+			AI_Paddle->SetBall(SpawnedActor);*/
+			//AATEGameModeBase* gameMode = Cast<AATEGameModeBase>(GetWorld()->GetAuthGameMode());
+
 		}
 	}
 }
@@ -76,8 +101,8 @@ void AATETriggerCollision::EndOverlap(UPrimitiveComponent* OverlappedComponent, 
 	{
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green, TEXT("Overlap Ended"));
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Magenta, FString::Printf(TEXT("%s has left the Trigger Volume"), *OtherActor->GetName()));
+			/*GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green, TEXT("Overlap Ended"));
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Magenta, FString::Printf(TEXT("%s has left the Trigger Volume"), *OtherActor->GetName()));*/
 		}
 	}
 }

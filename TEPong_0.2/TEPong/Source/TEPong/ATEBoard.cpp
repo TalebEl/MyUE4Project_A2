@@ -11,6 +11,7 @@
 #include "ATEGameModeBase.h"
 #include "ATEGameStateBase.h"
 #include "ATEAIPawn.h"
+#include "Components/ArrowComponent.h"
 
 // Sets default values
 AATEBoard::AATEBoard()
@@ -52,6 +53,12 @@ AATEBoard::AATEBoard()
 	//RightBoundary->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	//RightBoundary->SetupAttachment(RootComponent);
 
+	SpawnPointComponent = CreateDefaultSubobject<UArrowComponent>("SpawnPoint");
+	SpawnPointComponent->SetupAttachment(RootComponent);
+	//SET the SpawnPointComponent's ArrowSize property
+	SpawnPointComponent->ArrowSize = 5.f;
+	SpawnPointComponent->SetRelativeRotation(FRotator(50.f, 0.f, 0.f));
+	SpawnPointComponent->SetRelativeLocation(FVector(0.f, 100.f, 0.f));
 
 
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>("Board Camera");
@@ -63,8 +70,8 @@ AATEBoard::AATEBoard()
 
 void AATEBoard::BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	OtherActor->Destroy();
-	SpawnActor();
+	//OtherActor->Destroy();
+	//SpawnActor();
 
 	/*if (OtherActor->IsA<AATEBall>())
 	{
@@ -128,7 +135,9 @@ void AATEBoard::SpawnActor()
 			SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
 
-			FTransform SpawnTransform;// = SpawnPointComponent->GetComponentTransform();
+			FTransform SpawnTransform;
+
+			SpawnPointComponent->GetComponentTransform();
 
 			AATEBall* SpawnedActor = World->SpawnActor<AATEBall>(BallTemplate, SpawnTransform, SpawnParams);
 	

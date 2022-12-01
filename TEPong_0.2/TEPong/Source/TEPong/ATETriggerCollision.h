@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "ATETriggerCollision.generated.h"
 
+
 //WEEK 7
 UENUM(BlueprintType)
 enum class EGoal : uint8 {	
@@ -25,13 +26,15 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Custom")
 		class UBoxComponent* TriggerBox;
 
-	//WEEK 7
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
 		TEnumAsByte<EGoal> goal;
 
-	//WEEK 7
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)
-	AActor* MiddleOfField;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Board Class")
+		TSubclassOf<class AATEBoard> BoardClass;
+
+	class AATEBoard* MyBoard;
+
 
 	UFUNCTION()
 	void BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-12-02T03:16:13.382Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0" etag="np-FMBsUvAZyRKcxiDyf" version="20.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-12-02T05:43:56.751Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 OPR/92.0.0.0" etag="fRzbpsCpIx-qCVXUg9zR" version="20.4.0" type="github">
   <diagram id="vy-n99jRlj0DZZzAviXQ" name="Page-1">
-    <mxGraphModel dx="3387" dy="3187" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3089" dy="3013" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -119,53 +119,56 @@
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-31" value="+Collision: bool = false&#xa;+Overlap: bool = false&#xa;&#xa;UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Board Visual&quot;)&#xa;+BoardVisual:UPaperSpriteComponent*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Box Collision&quot;)&#xa;+TopBoundary:UBoxComponent*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Box Collision&quot;)&#xa;+BottomBoundary:UBoxComponent*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, Category = &quot;Board Camera&quot;)&#xa;+UCameraComponent* FollowCamera;&#xa;&#xa;	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Config&quot;, meta = (AllowPrivateAccess = &quot;true&quot;))&#xa;+BallTemplate:TSubclassOf&lt;class AATEBall&gt; ;&#xa;&#xa;	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)&#xa;+MiddleOfField:AActor* &#xa;&#xa;	UPROPERTY(EditAnywhere, BlueprintReadWrite)&#xa;+AI_Paddle:AATEAIPawn*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Components&quot;, meta = (AllowPrivateAccess = &quot;true&quot;))&#xa;+SpawnPoint:ComponentUArrowComponent*&#xa;&#xa;UFUNCTION()&#xa;BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult&amp; SweepResult):void &#xa;	&#xa;	UFUNCTION()&#xa;EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex):void " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-30" vertex="1">
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-31" value="+Collision: bool = false&#xa;+Overlap: bool = false&#xa;&#xa;UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Board Visual&quot;)&#xa;+BoardVisual:UPaperSpriteComponent*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Box Collision&quot;)&#xa;+TopBoundary:UBoxComponent*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Box Collision&quot;)&#xa;+BottomBoundary:UBoxComponent*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, Category = &quot;Board Camera&quot;)&#xa;+UCameraComponent* FollowCamera&#xa;&#xa;	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Config&quot;, meta = (AllowPrivateAccess = &quot;true&quot;))&#xa;+BallTemplate:TSubclassOf&lt;class AATEBall&gt; &#xa;&#xa;	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Goal)&#xa;+MiddleOfField:AActor* &#xa;&#xa;	UPROPERTY(EditAnywhere, BlueprintReadWrite)&#xa;+AI_Paddle:AATEAIPawn*&#xa;&#xa;	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Components&quot;, meta = (AllowPrivateAccess = &quot;true&quot;))&#xa;+SpawnPoint:ComponentUArrowComponent*&#xa;&#xa;UFUNCTION()&#xa;BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult&amp; SweepResult):void &#xa;	&#xa;	UFUNCTION()&#xa;EndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex):void " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-30" vertex="1">
           <mxGeometry y="26" width="1140" height="604" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-32" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-30" vertex="1">
           <mxGeometry y="630" width="1140" height="24" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-33" value="&#xa;+BeginOverlap(Overlap): void&#xa;+EndOverlap(Overlap): void&#xa;+Tick(): void&lt;virtual override&gt;&#xa;#BeginPlay(): void&lt;virtual override&gt;&#xa;+SpawnActor():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-30" vertex="1">
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-33" value="+checkCollision(OverlapComponent): void&#xa;+BeginOverlap(Overlap): void&#xa;+EndOverlap(Overlap): void&#xa;+Tick(): void&lt;virtual override&gt;&#xa;#BeginPlay(): void&lt;virtual override&gt;&#xa;+SpawnActor():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-30" vertex="1">
           <mxGeometry y="654" width="1140" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-34" value="UI" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="1240" width="260" height="200" as="geometry">
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-34" value="GameHUD" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="1030" y="-610" width="420" height="290" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-35" value="-PawnPoints:int&#xa;-UIPawnPoints:int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-34" vertex="1">
-          <mxGeometry y="26" width="260" height="54" as="geometry" />
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-35" value="+UPROPERTY(EditAnywhere, Category = &quot;Game Hud&quot;)&#xa;        TSubclassOf&lt;class UUserWidget&gt; PlayerGuiClass;&#xa;       &#xa;+UPROPERTY()&#xa;   PlayerGui:class UUserWidget* " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-34" vertex="1">
+          <mxGeometry y="26" width="420" height="114" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-36" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-34" vertex="1">
-          <mxGeometry y="80" width="260" height="40" as="geometry" />
+          <mxGeometry y="140" width="420" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-37" value="AddPoints(PawnPoints,UIPawnPoints): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-34" vertex="1">
-          <mxGeometry y="120" width="260" height="26" as="geometry" />
+        <mxCell id="EQ2e5LT56-1fLN_2VHPu-2" value="&lt;span style=&quot;text-align: left;&quot;&gt;#BeginPlay(): void&amp;lt;virtual override&amp;gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="HIKSgtKW2biYpnhDnhFu-34">
+          <mxGeometry y="260" width="420" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-46" value="UIPaddle" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="-120" y="808.36" width="270" height="210" as="geometry">
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-46" value="Paddle(Pawn)" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="-1580" y="1070" width="810" height="1210" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="EQ2e5LT56-1fLN_2VHPu-3" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;#UPROPERTY(EditAnywhere, Category = &quot;Paddle Visual&quot;)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;PawnSpriteComponent:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;class UPaperSpriteComponent*&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;#UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Custom&quot;)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;PlayerRootCollisionBox:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;class UBoxComponent*&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;#UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Movement Speed&quot;)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;NormalSpeed:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;float&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;&quot;&gt;&lt;/span&gt;#UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Movement Speed&quot;)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;FastSpeed:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;float&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;/span&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-moveUpAndDown:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;float&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;div&gt;&lt;span style=&quot;&quot;&gt;	&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-m_Direction:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;FVector&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-m_TopBorder:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;FVector&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-m_BottomBorder:&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;FVector&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;+Speed:float&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+Sprite:UObject*&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+isPlayer:bool&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&amp;nbsp;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="HIKSgtKW2biYpnhDnhFu-46">
+          <mxGeometry y="26" width="810" height="890" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-48" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-46" vertex="1">
-          <mxGeometry y="26" width="270" height="88" as="geometry" />
+          <mxGeometry y="916" width="810" height="44" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-49" value="AIMovement(): void " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-46" vertex="1">
-          <mxGeometry y="114" width="270" height="42" as="geometry" />
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-49" value="+moveUpandDown(float value):void &#xa;+SpeedUp():void &#xa;+SlowDown():void&#xa;+Tick(): void&lt;virtual override&gt;&#xa;+BeginPlay(): void&lt;virtual override&gt;&#xa;+SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent):void &lt;virtual override&gt;&#xa;&#xa;&#xa; " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-46" vertex="1">
+          <mxGeometry y="960" width="810" height="220" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-50" value="Ball(Actor)" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="350" y="474.36" width="260" height="248" as="geometry">
+          <mxGeometry x="320" y="400" width="1040" height="980" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-51" value="- value: float" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-50" vertex="1">
-          <mxGeometry y="26" width="260" height="54" as="geometry" />
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-51" value="-MovementDirection:FVector;&#xa;&#xa;UPROPERTY(EditAnywhere)&#xa;- m_Speed:float&#xa;&#xa;-IsActive: bool = false&#xa;&#xa;-InitialPosition:FVector &#xa;&#xa;UPROPERTY(EditAnywhere, Category = &quot;Category scene&quot;)       SceneComponent:class USceneComponent* &#xa;&#xa;UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Sphere Component&quot;)       CollisionSphere:class USphereComponent* &#xa;&#xa;&#xa;UPROPERTY(EditAnywhere, Category = &quot;Sprite Ball&quot;) SpriteBall:class UPaperSpriteComponent* &#xa;&#xa;UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = &quot;Ball Movement Component&quot;)&#xa;&#xa;        BallMovementComponent:class UProjectileMovementComponent* " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-50" vertex="1">
+          <mxGeometry y="26" width="1040" height="314" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-52" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-50" vertex="1">
-          <mxGeometry y="80" width="260" height="88" as="geometry" />
+          <mxGeometry y="340" width="1040" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-53" value="BallMovementComponants(float value): void&#xa;BallDestroyed(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-50" vertex="1">
-          <mxGeometry y="168" width="260" height="80" as="geometry" />
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-53" value="UFUNCTION()&#xa;-void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult&amp; Hit)&#xa;&#xa;+Tick(): void&lt;virtual override&gt;&#xa;&#xa;+GetPhysicsComponent():class UPrimitiveComponent*&#xa;&#xa;#BeginPlay(): void&lt;virtual override&gt;&#xa;&#xa;+void StartingDirection(FVector direction);&#xa;&#xa;+bool IsActorActive();&#xa;&#xa;+void Start();&#xa;&#xa;+ virtual void Destroyed() override;&#xa; " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-50" vertex="1">
+          <mxGeometry y="450" width="1040" height="320" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-61" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="HIKSgtKW2biYpnhDnhFu-71" target="HIKSgtKW2biYpnhDnhFu-13" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -175,7 +178,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-71" value="GameState" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="480" y="-350" width="400" height="430" as="geometry">
+          <mxGeometry x="510" y="-610" width="400" height="370" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -183,10 +186,10 @@
           <mxGeometry y="26" width="400" height="54" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-74" value="&#xa;UFUNCTION(BlueprintCallable, Category = &quot;Pickups&quot;)&#xa;+GetNumberOfRightGoals(): int &#xa;&#xa;UFUNCTION(BlueprintCallable, Category = &quot;Pickups&quot;)&#xa;+GetNumberOfLeftGoals(): int " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-71" vertex="1">
-          <mxGeometry y="80" width="400" height="292" as="geometry" />
+          <mxGeometry y="80" width="400" height="282" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-73" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-71" vertex="1">
-          <mxGeometry y="372" width="400" height="8" as="geometry" />
+          <mxGeometry y="362" width="400" height="8" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-75" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="HIKSgtKW2biYpnhDnhFu-30" edge="1" target="HIKSgtKW2biYpnhDnhFu-13">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -202,7 +205,7 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-82" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="HIKSgtKW2biYpnhDnhFu-30" edge="1">
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-82" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" target="HIKSgtKW2biYpnhDnhFu-30" edge="1" source="HIKSgtKW2biYpnhDnhFu-85">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="160" y="472.36" as="sourcePoint" />
             <mxPoint x="150" y="380" as="targetPoint" />
@@ -210,7 +213,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-85" value="Paddle" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="30" y="474.36" width="260" height="208" as="geometry">
+          <mxGeometry x="-640" y="370" width="260" height="208" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -223,13 +226,14 @@
         <mxCell id="HIKSgtKW2biYpnhDnhFu-88" value="InputComponent():void&#xa;MoveUp(): void&#xa;MoveDown(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-85" vertex="1">
           <mxGeometry y="148" width="260" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-92" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;strokeWidth=2;exitX=0.555;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HIKSgtKW2biYpnhDnhFu-88" edge="1">
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-92" value="" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;strokeWidth=2;exitX=0.555;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HIKSgtKW2biYpnhDnhFu-88" edge="1" target="HIKSgtKW2biYpnhDnhFu-98">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="160" y="792.36" as="sourcePoint" />
-            <mxPoint x="335" y="808.36" as="targetPoint" />
+            <mxPoint x="-370" y="1100" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="174" y="772.36" />
-              <mxPoint x="335" y="772.36" />
+              <mxPoint x="-496" y="700" />
+              <mxPoint x="-340" y="700" />
+              <mxPoint x="-340" y="1080" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -238,21 +242,23 @@
             <mxPoint x="-30" y="732.36" as="sourcePoint" />
             <mxPoint x="99.99999999999994" y="702.3600000000001" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="15" y="772.36" />
-              <mxPoint x="114" y="772.36" />
+              <mxPoint x="-790" y="1020" />
+              <mxPoint x="-790" y="772" />
+              <mxPoint x="-760" y="772" />
+              <mxPoint x="-760" y="580" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-98" value="PawnController" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="190" y="808.36" width="260" height="208" as="geometry">
+          <mxGeometry x="-700" y="1090" width="770" height="1580" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-100" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-98" vertex="1">
-          <mxGeometry y="26" width="260" height="68" as="geometry" />
+          <mxGeometry y="26" width="770" height="384" as="geometry" />
         </mxCell>
-        <mxCell id="HIKSgtKW2biYpnhDnhFu-101" value="InputComponent():void&#xa;MoveUp(): void&#xa;MoveDown(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="HIKSgtKW2biYpnhDnhFu-98" vertex="1">
-          <mxGeometry y="94" width="260" height="60" as="geometry" />
+        <mxCell id="HIKSgtKW2biYpnhDnhFu-101" value="InputComponent():void&#xa;MoveUp(): void&#xa;MoveDown(): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;strokeWidth=0;" parent="HIKSgtKW2biYpnhDnhFu-98" vertex="1">
+          <mxGeometry y="410" width="770" height="60" as="geometry" />
         </mxCell>
         <mxCell id="HIKSgtKW2biYpnhDnhFu-102" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;exitX=0.467;exitY=-0.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="HIKSgtKW2biYpnhDnhFu-50" target="HIKSgtKW2biYpnhDnhFu-30" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">

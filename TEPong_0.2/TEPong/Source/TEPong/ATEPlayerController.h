@@ -26,9 +26,17 @@ protected:
     virtual void AcknowledgePossession(APawn* PossesedPawn) override;
 
     void moveUpandDown(float value);
-    void SpeedUp();
-    void SlowDown();
+   
 
     class AATEPawn* MyPawn;
 	
 };
+
+
+
+
+
+
+
+
+
